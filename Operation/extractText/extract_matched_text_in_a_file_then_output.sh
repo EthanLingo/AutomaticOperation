@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ## renameLinksAtMarkdownFiles
-## 重命名Markdown文件内的链接为Zotero相应的文件
+## 用正则表达式提取Markdown文件内的指定文本输出
 
-## 程序1：用命令sed
+## 方法1：用命令sed
 # 设置区
 # cd ./ZoteroOperation/data/mdfiles
 # replaced=${1}
@@ -21,7 +21,7 @@ re="s/"${replaced}"/"${replace}"/p"
 sed -En "${re}" ${input} > ${output}
 
 
-## 程序2：用命令grep
+## 方法2：用命令grep
 cd data
 replaced='(\[\[\()(.*)\,\s(.*)(\)\]\])'
 replace='{"author":"\3","year":"\4"},'
