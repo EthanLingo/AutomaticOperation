@@ -1,2 +1,6 @@
+*.DS_Store
+*.ffs_db
+*.sync.ffs_db
+
 venv
 data
