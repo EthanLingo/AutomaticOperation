@@ -1,0 +1,335 @@
+{
+  "id": "2cc40093-7b3e-410f-af01-8dfc76ecfa55",
+  "version": "2.0",
+  "name": "publish_dream",
+  "url": "https://www.jianshu.com/writer#/notebooks/49575410/notes/92539080",
+  "tests": [{
+    "id": "3d240a73-6ca0-42db-9ceb-36cd8cf078ee",
+    "name": "设定时间在新浪博客",
+    "commands": [{
+      "id": "b6a1c028-b0c9-44d9-ac7c-b1813472f1bd",
+      "comment": "",
+      "command": "open",
+      "target": "http://control.blog.sina.com.cn/admin/article/article_add.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9401891-daae-475c-894a-adf205ecdb5d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#setPubTime > cite",
+      "targets": [
+        ["css=#setPubTime > cite", "css:finder"],
+        ["xpath=//a[@id='setPubTime']/cite", "xpath:idRelative"],
+        ["xpath=//div[2]/a/cite", "xpath:position"],
+        ["xpath=//cite[contains(.,'设置定时')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "760303eb-b1be-45a6-a89e-2cb88e341374",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "061d60a5-3dac-4044-85f1-cbe28573005a",
+      "comment": "",
+      "command": "click",
+      "target": "id=_5931630661238718_idCalendarYear",
+      "targets": [
+        ["id=_5931630661238718_idCalendarYear", "id"],
+        ["css=#\\_5931630661238718_idCalendarYear", "css:finder"],
+        ["xpath=//input[@id='_5931630661238718_idCalendarYear']", "xpath:attributes"],
+        ["xpath=//div[@id='_5931630661238718_calendarBody']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2954f944-5330-4b15-ba31-3fd3a64ef838",
+      "comment": "",
+      "command": "type",
+      "target": "id=_5931630661238718_idCalendarYear",
+      "targets": [
+        ["id=_5931630661238718_idCalendarYear", "id"],
+        ["css=#\\_5931630661238718_idCalendarYear", "css:finder"],
+        ["xpath=//input[@id='_5931630661238718_idCalendarYear']", "xpath:attributes"],
+        ["xpath=//div[@id='_5931630661238718_calendarBody']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "2022"
+    }, {
+      "id": "3f25f6e2-4cc3-4e06-864e-b03f497675c2",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=_5931630661238718_idCalendarYear",
+      "targets": [
+        ["id=_5931630661238718_idCalendarYear", "id"],
+        ["css=#\\_5931630661238718_idCalendarYear", "css:finder"],
+        ["xpath=//input[@id='_5931630661238718_idCalendarYear']", "xpath:attributes"],
+        ["xpath=//div[@id='_5931630661238718_calendarBody']/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "7a570812-c2d4-405b-8c6d-1621a1915b0f",
+      "comment": "",
+      "command": "click",
+      "target": "id=_5931630661238718_idCalendarMonth",
+      "targets": [
+        ["id=_5931630661238718_idCalendarMonth", "id"],
+        ["css=#\\_5931630661238718_idCalendarMonth", "css:finder"],
+        ["xpath=//input[@id='_5931630661238718_idCalendarMonth']", "xpath:attributes"],
+        ["xpath=//div[@id='_5931630661238718_calendarBody']/div/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//div/div/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "48f676bc-f5c0-4831-bc14-5dd0e96660da",
+      "comment": "",
+      "command": "type",
+      "target": "id=_5931630661238718_idCalendarMonth",
+      "targets": [
+        ["id=_5931630661238718_idCalendarMonth", "id"],
+        ["css=#\\_5931630661238718_idCalendarMonth", "css:finder"],
+        ["xpath=//input[@id='_5931630661238718_idCalendarMonth']", "xpath:attributes"],
+        ["xpath=//div[@id='_5931630661238718_calendarBody']/div/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//div/div/input[2]", "xpath:position"]
+      ],
+      "value": "3"
+    }, {
+      "id": "23230321-0deb-457b-8b19-5fa937fc3fc8",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=_5931630661238718_idCalendarMonth",
+      "targets": [
+        ["id=_5931630661238718_idCalendarMonth", "id"],
+        ["css=#\\_5931630661238718_idCalendarMonth", "css:finder"],
+        ["xpath=//input[@id='_5931630661238718_idCalendarMonth']", "xpath:attributes"],
+        ["xpath=//div[@id='_5931630661238718_calendarBody']/div/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//div/div/input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "8c30e735-baaf-457c-a1c8-8019de853069",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=7",
+      "targets": [
+        ["linkText=7", "linkText"],
+        ["css=#\\_5931630661238718_idCalendar > tr:nth-child(2) > td:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'7')]", "xpath:link"],
+        ["xpath=//tbody[@id='_5931630661238718_idCalendar']/tr[2]/td[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'javascript:void(0);')])[25]", "xpath:href"],
+        ["xpath=//tr[2]/td[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'7')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e1613d47-3c08-4d8f-954e-b7556e0a76b5",
+    "name": "设定标签和话题在新浪博客",
+    "commands": [{
+      "id": "3060f730-071a-4550-bc60-2478bcf1c39b",
+      "comment": "",
+      "command": "select",
+      "target": "id=componentSelect",
+      "targets": [],
+      "value": "label=虚境朝拾"
+    }, {
+      "id": "183e9a53-4c0d-4cc9-8284-37f77263f1b1",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(6)",
+      "targets": [
+        ["css=option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='15']", "xpath:attributes"],
+        ["xpath=//select[@id='componentSelect']/option[6]", "xpath:idRelative"],
+        ["xpath=//option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'虚境朝拾')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ecaadded-1d28-4e88-8d4a-d4cf60fe5cfa",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=梦境",
+      "targets": [
+        ["linkText=梦境", "linkText"],
+        ["css=#hotTagList > .ts_tag:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'梦境')]", "xpath:link"],
+        ["xpath=//td[@id='hotTagList']/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'javascript:;')])[8]", "xpath:href"],
+        ["xpath=//tbody/tr/td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'梦境')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc0be493-26b1-4843-9b2b-69dc0f209570",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=虚境朝拾",
+      "targets": [
+        ["linkText=虚境朝拾", "linkText"],
+        ["css=#hotTagList > .ts_tag:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'虚境朝拾')]", "xpath:link"],
+        ["xpath=//td[@id='hotTagList']/a[2]", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'javascript:;')])[10]", "xpath:href"],
+        ["xpath=//td/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'虚境朝拾')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb1092ee-b17a-4aab-be49-1184e7edac0a",
+      "comment": "",
+      "command": "open",
+      "target": "http://control.blog.sina.com.cn/admin/article/article_add.php",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a3da669d-a097-4020-b569-d119255ca237",
+    "name": "设定时间在简书",
+    "commands": [{
+      "id": "cb43c3ac-e8e2-4215-b74d-cb1278155cc2",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.jianshu.com/writer#/notebooks/49575410/notes/92539080",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "80b8ea69-4411-4b74-999b-3ead080d46c9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1050",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5f2b20f-1fa5-4819-9e7d-7ff5e7ece08a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.\\_1GsW5 > span",
+      "targets": [
+        ["css=.\\_1GsW5 > span", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/div/div/div/div/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div/div/span", "xpath:position"],
+        ["xpath=//span[contains(.,' 新建文章')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4a9795c-1f52-4712-a360-c39333df04cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.poOXI > .fa",
+      "targets": [
+        ["css=.poOXI > .fa", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/div/div/div/ul/li[2]/div/i", "xpath:idRelative"],
+        ["xpath=//li[2]/div/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5cd09fd2-62a8-4428-8a5c-e93b099288c8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NvfK4 > .\\_2po2r:nth-child(2) > span",
+      "targets": [
+        ["css=.NvfK4 > .\\_2po2r:nth-child(2) > span", "css:finder"],
+        ["xpath=//div[@id='root']/div/div[2]/div/div/div/div/ul/li[2]/div/span/ul/li[2]/span", "xpath:idRelative"],
+        ["xpath=//li[2]/div/span/ul/li[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f05ea1b-2318-4a6e-9122-37fba253f610",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ant-calendar-picker-clear path",
+      "targets": [
+        ["css=.ant-calendar-picker-clear path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "13aad92f-3922-4621-aa6c-09d3dcbd4e02",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ant-calendar-picker-clear path",
+      "targets": [
+        ["css=.ant-calendar-picker-clear path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2a6e571-17fb-49c8-a216-7a00454f84da",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ant-calendar-picker-clear path",
+      "targets": [
+        ["css=.ant-calendar-picker-clear path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "275c5384-eaa5-4025-bc4d-bba9376669eb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ant-calendar-picker-input",
+      "targets": [
+        ["css=.ant-calendar-picker-input", "css:finder"],
+        ["xpath=(//input[@value='2021-09-06'])[2]", "xpath:attributes"],
+        ["xpath=//span/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "761f2e2f-59b1-426e-9c68-788f119479c5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ant-calendar-input",
+      "targets": [
+        ["css=.ant-calendar-input", "css:finder"],
+        ["xpath=(//input[@value='2021-09-06'])[3]", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c292f1fb-e709-48dd-8829-e31bfade1b85",
+      "comment": "",
+      "command": "type",
+      "target": "css=.ant-calendar-input",
+      "targets": [
+        ["css=.ant-calendar-input", "css:finder"],
+        ["xpath=(//input[@value='2022-09-20'])[2]", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "2022-09-20"
+    }, {
+      "id": "764275f0-5811-4b48-8e94-2327ba004d22",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "css=.ant-calendar-input",
+      "targets": [
+        ["css=.ant-calendar-input", "css:finder"],
+        ["xpath=(//input[@value='2022-09-20'])[2]", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "48cb8b9e-951e-4d4e-83d7-25aaa227f390",
+      "comment": "",
+      "command": "click",
+      "target": "css=.RzhZ5 > .\\_3QfkW > span",
+      "targets": [
+        ["css=.RzhZ5 > .\\_3QfkW > span", "css:finder"],
+        ["xpath=//div[4]/button[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'确 认')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "ef7dc562-a379-4329-81c2-b131092de211",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3d240a73-6ca0-42db-9ceb-36cd8cf078ee"]
+  }],
+  "urls": ["http://control.blog.sina.com.cn/"],
+  "plugins": []
+}
