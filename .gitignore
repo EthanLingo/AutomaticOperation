@@ -5,7 +5,8 @@
 Resources
 venv
 data
-
+Projects/代理
+Operation/代理
 */.sync.ffs_db
 
 
@@ -264,3 +265,5 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,obsidian,visualstudiocode,python
 Resources/.DS_Store
 Resources/.DS_Store
+.Rproj.user
+
