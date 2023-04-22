@@ -1,0 +1,53 @@
+导入包
+
+```{r}
+library(dplyr)
+library(lubridate)
+library(readxl)
+library(xlsx)
+library(magrittr)
+library(tidyverse)
+library(ggplot2)
+```
+
+载入数据
+
+```{r}
+银行网点数据01 <- read_excel("银行网点数据_2023-03-14.xlsx")
+View(银行网点数据01)
+```
+
+剔除缺失数据
+
+```{r}
+银行网点数据02<-subset(银行网点数据01,批准成立日期!="NA")
+```
+
+提取年份列
+
+```{r}
+银行网点数据02$year <- as.Date(银行网点数据02$批准成立日期,format="%Y") %>% year()
+```
+
+按照不同的条件分组汇总数据
+
+```{r}
+data_year <- 银行网点数据02 %>% group_by(year) %>% summarise(count=n())
+data_province <- 银行网点数据02 %>% group_by(省份) %>% summarise(count=n())
+data_province_and_year <- 银行网点数据02 %>% group_by(省份,year) %>% summarise(count=n(),.groups = "keep")
+
+```
+
+绘制图
+
+```{r}
+data_year %>% plot()
+```
+
+导出分组汇总数据
+
+```{r}
+write.xlsx(data_province,file="data_province.xlsx")
+write.xlsx(data_year,file="data_year.xlsx")
+write.xlsx(as.data.frame(data_province_and_year),file="data_province_and_year.xlsx")
+```
