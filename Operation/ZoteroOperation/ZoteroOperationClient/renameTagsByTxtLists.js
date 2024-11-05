@@ -1,3 +1,6 @@
+// //WARNING 警告：运行任何代码之前，请先备份您的 Zotero 数据库！
+
+
 // 以前自己写的代码，不记得做什么了。现在让 AI 帮我解读一下 ---------------
 // 这段 JavaScript 代码的主要目的是在 Zotero（一个引用管理软件）中重命名特定的标签（tag）。这个过程分为几个步骤：
 // 首先，定义了一些变量，包括要搜索的字段名称（field_name），搜索条件（condition），以及旧的标签名称（old_name）和新的标签名称（new_name）。
@@ -22,22 +25,28 @@ zotero_search.libraryID = ZoteroPane.getSelectedLibraryID();
 zotero_search.addCondition(field_name, condition, old_name);
 var id_items = await zotero_search.search();
 if (!id_items.length) {
-    return "No items found";
+  return "No items found";
 }
 items = Zotero.Items.get(id_items);
 await Zotero.DB.executeTransaction(async function () {
-    for (let item of items) {
-        item.removeTag(old_name)
-        item.addTag(new_name, num);
-        await item.save({
-            skipDateModifiedUpdate: true
-        });
-    }
+  for (let item of items) {
+    item.removeTag(old_name)
+    item.addTag(new_name, num);
+    await item.save({
+      skipDateModifiedUpdate: true
+    });
+  }
 });
 return items.length + " tag(s) updated";
 
-// --------------- 方案 2 ---------------
 
+
+
+
+
+// //NOTE 这个是可以使用的。强烈推荐用这个方案批量更改标签！
+// //WARNING 警告：运行任何代码之前，请先备份您的 Zotero 数据库！
+// --------------- 方案 2 ---------------
 // 以前自己写的代码，不记得做什么了。现在让 AI 帮我解读一下 ---------------
 // 这段 JavaScript 代码的主要目的是在 Zotero（一个引用管理软件）中批量重命名标签（tag）。这个过程分为几个步骤：
 // 首先，定义了一些变量，包括要搜索的字段名称（field_name）、搜索条件（condition）和标签的类型（num）。
@@ -56,15 +65,15 @@ return items.length + " tag(s) updated";
 const tags_txt = `
 // 请在此处粘贴标签列表
 // 举例：
-// 【内容】：统计学习
-// 【方法】：实验
+文献/综述
+文献/手册
 `;
 
 const tagList = tags_txt.trim().split('\n').map(line => {
-  const regex = /【(.*?)】：(.*)/;
+  const regex = /^(?!#)(.*)\/(.*)/;  // 这里是你需要设置的正则表达式
   const match = line.match(regex);
   if (match) {
-    return [match[0], `${match[1]} - ${match[2]}`];
+    return [match[0], `#${match[1]}/${match[2]}`];  // 这里是你需要设置的新标签名称
   } else {
     return [line, line];
   }
@@ -79,34 +88,40 @@ var num = 0; // num=0是手动，num=1是自动。
 list_tags = tagList;
 // 遍历tag列表
 for (let i in list_tags) {
-    name_tag_old = list_tags[i][0];
-    name_tag_new = list_tags[i][1];
+  name_tag_old = list_tags[i][0];
+  name_tag_new = list_tags[i][1];
 
-    //// 以下操作Zotero
-    let zotero_search = new Zotero.Search();
-    zotero_search.libraryID = ZoteroPane.getSelectedLibraryID();
-    zotero_search.addCondition(field_name, condition, name_tag_old);
-    var id_items = await zotero_search.search();
-    if (!id_items.length) {
-        return "No items found";
+  //// 以下操作Zotero
+  let zotero_search = new Zotero.Search();
+  zotero_search.libraryID = ZoteroPane.getSelectedLibraryID();
+  zotero_search.addCondition(field_name, condition, name_tag_old);
+  var id_items = await zotero_search.search();
+  if (!id_items.length) {
+    return "No items found";
+  }
+  items = Zotero.Items.get(id_items);
+  await Zotero.DB.executeTransaction(async function () {
+    for (let item of items) {
+      item.removeTag(name_tag_old)
+      item.addTag(name_tag_new, num);
+      await item.save({
+        skipDateModifiedUpdate: true
+      });
     }
-    items = Zotero.Items.get(id_items);
-    await Zotero.DB.executeTransaction(async function () {
-        for (let item of items) {
-            item.removeTag(name_tag_old)
-            item.addTag(name_tag_new, num);
-            await item.save({
-                skipDateModifiedUpdate: true
-            });
-        }
-    });
-    // 计数已经重命名的tag个数
-    count_tag_updated += 1;
+  });
+  // 计数已经重命名的tag个数
+  count_tag_updated += 1;
 }
 return count_tag_updated + " tags updated.";
 
 
 
+
+
+
+
+
+// //WARNING 警告：运行任何代码之前，请先备份您的 Zotero 数据库！
 // --------------- 方案 3 ---------------
 // 方案 3 类似方案 2 ，但是将返回结果改为返回更新的标签数量，而不是返回更新的标签列表。
 // 程序：重命名检索获得的相关item之tag之名称
@@ -118,11 +133,11 @@ async function updateTags(tagsString) {
   const tagLines = tagsString.trim().split('\n');
 
   for (let line of tagLines) {
-    const regex = /【(.*)】：(.*)/;
+    const regex = /(.*)\/(.*)/; // 这里是你需要设置的正则表达式
     const match = line.match(regex);
     if (match) {
       var old_name = match[0];
-      var new_name = `${match[1]}/${match[2]}`;
+      var new_name = `#${match[1]}/${match[2]}`;  // 这里是你需要设置的新标签名称
 
       console.log(`Old name: ${old_name}, New name: ${new_name}`); // 打印旧标签和新标签
 
@@ -159,8 +174,8 @@ async function updateTags(tagsString) {
 
 // 使用示例
 const tagsString = `
-【类型】：文献
-【学科】：复杂系统
+文献/综述
+文献/手册
 `;
 
 updateTags(tagsString);
